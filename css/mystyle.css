@@ -84,7 +84,7 @@
         /* NUEVA VERSIÓN RECOMENDADA CON IMAGEN Y ANIMACIÓN */
         .hero {
             /* Fondo con tu imagen */
-            background-image: url('../assets/link_img.png');
+            background-image: url('../assets/background/link_img.png');
             /* ¡Ajusta esta ruta si es diferente! */
             background-size: 110%;
             /* Inicia un poco más grande para el efecto de zoom */
@@ -138,6 +138,12 @@
             font-size: 1.3rem;
             margin-bottom: 2rem;
             opacity: 0.95;
+        }
+
+        #cctvimg {
+            width: 50px;
+            margin: 0;
+            padding: 0;
         }
 
         .cta-button {
@@ -307,6 +313,68 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
+        }
+
+        /*==================================
+  NUEVOS ESTILOS PARA LOGOS DE MARCAS
+==================================*/
+
+        /* Contenedor principal (para heredar el estilo de background que tenías) */
+        .brands-section {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: var(--gray-light);
+            border-radius: 15px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* 1. Estructura Mobile First (Columnas Simples) */
+        .brands-grid {
+            display: grid;
+            /* Por defecto, 3 columnas para dispositivos pequeños */
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .brand-item {
+            padding: 0.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .brand-logo {
+            max-width: 100%;
+            height: auto;
+            opacity: 0.8;
+            transition: filter 0.5s ease-in-out, opacity 0.3s;
+
+            /* 2. Efecto de Grises Inicial (solo se activa cuando la imagen es a color) */
+            filter: grayscale(100%);
+        }
+
+        /* 3. Efecto Hover: Quitar Grises y Aumentar Opacidad */
+        .brand-logo:hover {
+            filter: grayscale(0%);
+            /* Quita el filtro de grises, revelando el color original */
+            opacity: 1;
+            /* Más brillante al pasar el mouse */
+            transform: scale(1.05);
+        }
+
+        /*==================================
+  RESPONSIVE (Desktop/Tablet)
+==================================*/
+
+        @media (min-width: 768px) {
+            .brands-grid {
+                /* En pantallas más grandes, ajustamos a 5 o más columnas para que se vean mejor */
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
         }
 
         .portfolio-item {
